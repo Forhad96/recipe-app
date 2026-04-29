@@ -7,7 +7,7 @@ export default function Home() {
       {/* Hero Section */}
       <div className="text-center max-w-4xl m-auto mb-24">
         <span className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-orange-600 uppercase bg-orange-50 rounded-full">
-          Interview Technical Showcase
+          Technical Showcase
         </span>
         <h1 className="text-5xl md:text-7xl font-black text-zinc-900 dark:text-white mb-6 tracking-tight">
           Next.js Recipe <span className="text-orange-500">Engine</span>
