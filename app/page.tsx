@@ -1,65 +1,125 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Search, ShieldCheck, Zap, ArrowRightLeft, Layers, Filter } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="min-h-screen bg-zinc-50 dark:bg-black font-sans py-20 px-4">
+      {/* Hero Section */}
+      <div className="text-center max-w-4xl m-auto mb-24">
+        <span className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-orange-600 uppercase bg-orange-50 rounded-full">
+          Interview Technical Showcase
+        </span>
+        <h1 className="text-5xl md:text-7xl font-black text-zinc-900 dark:text-white mb-6 tracking-tight">
+          Next.js Recipe <span className="text-orange-500">Engine</span>
+        </h1>
+        <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-10 leading-relaxed max-w-2xl mx-auto">
+          A high-performance application built to meet advanced technical requirements including secure proxying and complex state management.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+          <Link
+            href="/recipes/1" 
+            className="px-8 py-4 bg-orange-500 text-white font-bold rounded-2xl hover:bg-orange-600 shadow-lg shadow-orange-200 transition-all active:scale-95 w-full sm:w-auto"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Live Demo
+          </Link>
+          <a 
+            href="#technical-specs"
+            className="px-8 py-4 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white font-bold rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 transition-all w-full sm:w-auto"
           >
-            Documentation
+            Technical Docs
           </a>
         </div>
-      </main>
-    </div>
+
+        {/* Requirements Highlight Section */}
+        <div id="technical-specs" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+          
+          {/* Requirement 1: Search & Debounce */}
+          <div className="group p-8 bg-white dark:bg-zinc-900 rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:border-orange-200 transition-all">
+            <div className="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 text-orange-600">
+              <Search size={24} />
+            </div>
+            <h3 className="font-bold text-xl text-zinc-900 dark:text-white mb-3">Dynamic Search</h3>
+            <p className="text-sm text-zinc-500 leading-relaxed italic">
+              "Requirement: Real-time search with debounce&quot;."
+            </p>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+              Implemented a custom <strong>useDebounce</strong> hook to optimize API calls and enhance UX during recipe discovery.
+            </p>
+          </div>
+
+          {/* Requirement 2: Advanced Filtering & Sort */}
+          <div className="group p-8 bg-white dark:bg-zinc-900 rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:border-orange-200 transition-all">
+            <div className="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 text-blue-600">
+              <Filter size={24} />
+            </div>
+            <h3 className="font-bold text-xl text-zinc-900 dark:text-white mb-3">Filter & Sort</h3>
+            <p className="text-sm text-zinc-500 leading-relaxed italic">
+              "Requirement: Multi-criteria filtering & sorting."
+            </p>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+              Complex state synchronization with <strong>URL SearchParams</strong> for persistent filtering by cuisine and sorting by rating/time.
+            </p>
+          </div>
+
+          {/* Requirement 3: Pagination */}
+          <div className="group p-8 bg-white dark:bg-zinc-900 rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:border-orange-200 transition-all">
+            <div className="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center mb-6 text-green-600">
+              <Layers size={24} />
+            </div>
+            <h3 className="font-bold text-xl text-zinc-900 dark:text-white mb-3">Smart Pagination</h3>
+            <p className="text-sm text-zinc-500 leading-relaxed italic">
+              "Requirement: Efficient server-side pagination."
+            </p>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+              Custom pagination logic with <strong>generateStaticParams</strong> for lightning-fast, SEO-friendly static page generation.
+            </p>
+          </div>
+
+          {/* Requirement 4: X-WAF Token */}
+          <div className="group p-8 bg-white dark:bg-zinc-900 rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:border-orange-200 transition-all">
+            <div className="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center mb-6 text-red-600">
+              <ShieldCheck size={24} />
+            </div>
+            <h3 className="font-bold text-xl text-zinc-900 dark:text-white mb-3">X-WAF Security</h3>
+            <p className="text-sm text-zinc-500 leading-relaxed italic">
+              "Requirement: Secure header token injection."
+            </p>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+              Server-to-server security using <strong>x-waf-token</strong> headers to protect sensitive API endpoints from bot traffic.
+            </p>
+          </div>
+
+          {/* Requirement 5: Next.js Proxy/Redirects */}
+          <div className="group p-8 bg-white dark:bg-zinc-900 rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:border-orange-200 transition-all">
+            <div className="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mb-6 text-purple-600">
+              <ArrowRightLeft size={24} />
+            </div>
+            <h3 className="font-bold text-xl text-zinc-900 dark:text-white mb-3">Proxy & Redirects</h3>
+            <p className="text-sm text-zinc-500 leading-relaxed italic">
+              "Requirement: Clean URL proxying & redirection."
+            </p>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+              Configured <strong>Next.js middleware</strong> and rewrites to handle secure redirects and clean API proxying.
+            </p>
+          </div>
+
+          {/* Requirement 6: CI/CD */}
+          <div className="group p-8 bg-white dark:bg-zinc-900 rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:border-orange-200 transition-all">
+            <div className="w-12 h-12 bg-yellow-100 rounded-2xl flex items-center justify-center mb-6 text-yellow-600">
+              <Zap size={24} />
+            </div>
+            <h3 className="font-bold text-xl text-zinc-900 dark:text-white mb-3">CI/CD Deployment</h3>
+            <p className="text-sm text-zinc-500 leading-relaxed italic">
+              "Requirement: Automated build and deploy."
+            </p>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+              Zero-downtime deployment pipeline with automated environment variable management and build-time optimization.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </main>
   );
 }
